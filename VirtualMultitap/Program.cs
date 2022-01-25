@@ -273,15 +273,16 @@ namespace VirtualMultitap
 
                 while (configuring)
                 {
-                    masterController.Poll();
-                    JoystickState crntState = masterController.CurrentJoystickState;
                     switch (stage)
                     {
                         case 0:
                             {
                                 Console.WriteLine($"Press a button for '{Cross}':");
                                 while (btnCross == -1 || btnIndexes.Contains(btnCross))
+                                {
+                                    masterController.Poll();
                                     btnCross = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnCross);
                                 break;
                             }
@@ -289,7 +290,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{Square}':");
                                 while (btnSquare == -1 || btnIndexes.Contains(btnSquare))
+                                {
+                                    masterController.Poll();
                                     btnSquare = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnSquare);
                                 break;
                             }
@@ -297,7 +301,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{Triangle}':");
                                 while (btnTriangle == -1 || btnIndexes.Contains(btnTriangle))
+                                {
+                                    masterController.Poll();
                                     btnTriangle = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnTriangle);
                                 break;
                             }
@@ -305,7 +312,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{Circle}':");
                                 while (btnCircle == -1 || btnIndexes.Contains(btnCircle))
+                                {
+                                    masterController.Poll();
                                     btnCircle = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnCircle);
                                 break;
                             }
@@ -313,7 +323,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{Options} (Start)':");
                                 while (btnOption == -1 || btnIndexes.Contains(btnOption))
+                                {
+                                    masterController.Poll();
                                     btnOption = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnOption);
                                 break;
                             }
@@ -321,7 +334,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{Share} (Select)':");
                                 while (btnShare == -1 || btnIndexes.Contains(btnShare))
+                                {
+                                    masterController.Poll();
                                     btnShare = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnShare);
                                 break;
                             }
@@ -329,7 +345,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{ShoulderLeft}':");
                                 while (btnSL == -1 || btnIndexes.Contains(btnSL))
+                                {
+                                    masterController.Poll();
                                     btnSL = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnSL);
                                 break;
                             }
@@ -337,7 +356,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{ShoulderRight}':");
                                 while (btnSR == -1 || btnIndexes.Contains(btnSR))
+                                {
+                                    masterController.Poll();
                                     btnSR = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnSR);
                                 break;
                             }
@@ -345,7 +367,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{TriggerLeft}':");
                                 while (btnTgrL == -1 || btnIndexes.Contains(btnTgrL))
+                                {
+                                    masterController.Poll();
                                     btnTgrL = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnTgrL);
                                 break;
                             }
@@ -353,7 +378,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{TriggerRight}':");
                                 while (btnTgrR == -1 || btnIndexes.Contains(btnTgrR))
+                                {
+                                    masterController.Poll();
                                     btnTgrR = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnTgrR);
                                 break;
                             }
@@ -361,7 +389,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{ThumbLeft}':");
                                 while (btnTL == -1 || btnIndexes.Contains(btnTL))
+                                {
+                                    masterController.Poll();
                                     btnTL = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnTL);
                                 break;
                             }
@@ -369,7 +400,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Press a button for '{ThumbRight}':");
                                 while (btnTR == -1 || btnIndexes.Contains(btnTR))
+                                {
+                                    masterController.Poll();
                                     btnTR = masterController.CurrentJoystickState.GetButton();
+                                }
                                 btnIndexes.Add(btnTR);
                                 break;
                             }
@@ -377,7 +411,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Move axis for '{LeftThumbX}':");
                                 while (axisLX == -1 || axisIndexes.Contains(axisLX))
-                                    axisLX = crntState.GetAxis(reference);
+                                {
+                                    masterController.Poll();
+                                    axisLX = masterController.CurrentJoystickState.GetAxis(reference);
+                                }
                                 axisIndexes.Add(axisLX);
                                 break;
                             }
@@ -385,7 +422,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Move axis for '{LeftThumbY}':");
                                 while (axisLY == -1 || axisIndexes.Contains(axisLY))
-                                    axisLY = crntState.GetAxis(reference);
+                                {
+                                    masterController.Poll();
+                                    axisLY = masterController.CurrentJoystickState.GetAxis(reference);
+                                }
                                 axisIndexes.Add(axisLY);
                                 break;
                             }
@@ -393,7 +433,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Move axis for '{RightThumbX}':");
                                 while (axisRX == -1 || axisIndexes.Contains(axisRX))
-                                    axisRX = crntState.GetAxis(reference);
+                                {
+                                    masterController.Poll();
+                                    axisRX = masterController.CurrentJoystickState.GetAxis(reference);
+                                }
                                 axisIndexes.Add(axisRX);
                                 break;
                             }
@@ -401,7 +444,10 @@ namespace VirtualMultitap
                             {
                                 Console.WriteLine($"Move axis for '{RightThumbY}':");
                                 while (axisRY == -1 || axisIndexes.Contains(axisRY))
-                                    axisRY = crntState.GetAxis(reference);
+                                {
+                                    masterController.Poll();
+                                    axisRY = masterController.CurrentJoystickState.GetAxis(reference);
+                                }
                                 axisIndexes.Add(axisRY);
                                 configuring = false;
                                 break;
@@ -595,7 +641,6 @@ namespace VirtualMultitap
             }
 
             /// The triggers seem to be sliders and sometimes buttons? iuno so i just did both XD
-
             // get/set TgrL
             pressed = buttons[profile[8]] > 0;
             for (int i = 0; i < controllers.Length; i++)
