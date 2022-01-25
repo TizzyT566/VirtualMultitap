@@ -138,11 +138,12 @@ namespace VirtualMultitap
                 virtualControllers[i].Connect();
             }
 
+            Console.WriteLine("\nSelect master controller:\n 0: Detect");
+
             // 4)
             for (int i = 0; i < controllers.Count; i++)
                 Console.WriteLine($" {i + 1}: {controllers[i]}");
 
-            Console.WriteLine("\nSelect master controller:\n 0: Detect");
             int selectedController;
             while (!int.TryParse(Console.ReadLine(), out selectedController) || selectedController < 0 || selectedController > controllers.Count)
                 Console.WriteLine("Invalid number ...");
